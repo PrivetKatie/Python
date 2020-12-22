@@ -1,0 +1,5 @@
+time = int(input("Привет! Введи время в секундах!"))
+hour = int((time / 60) / 60)
+min = int((time / 60) - (hour * 60))
+sec = int(time - ((hour * 60) * 60) - (min * 60))
+print(str(hour) + ":" + str(min) + ":" + str(sec))
