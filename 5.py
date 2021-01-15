@@ -1,8 +1,8 @@
-from functools import reduce
-
-
-def my_func(el_p, el):
-    return el_p * el
-
-print([el for el in range(99,1001) if el % 2 == 0])
-print(reduce(my_func, (el for el in range(99, 1001) if el % 2 == 0)))
+with open('text_5.txt', 'w+', encoding='utf-8') as f:
+    from random import randint
+    numbers = []
+    while len(numbers) < 20:
+        n = randint(1, 1000)
+        numbers.append(n)
+    print(*numbers, sep=', ', file=f)
+    print(sum(numbers))

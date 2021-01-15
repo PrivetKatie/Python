@@ -1,16 +1,20 @@
-# from itertools import count
+with open('text_6.txt', 'r', encoding='utf-8') as f:
+    sub = []
+    hours = []
+    d = {}
 
-# for el in count(int(input("Первое число - "))):
-   # print(el)
-   # if el > 1000:
-     #   break
+    import re
 
-from itertools import cycle
+    for line in f:
+        key, value = line.split(':')
+        sub.append(key)
+        n = re.findall(r'\d+', value)
+        hour = sum(map(int, n))
+        hours.append(hour)
 
-i = 0
-my_list = [1234, "alalaa", True, 5.345]
-for el in cycle(my_list):
-    print(el)
-    i += 1
-    if i > 1000:
-        break
+    d = dict(zip(sub, hours))
+    print(d)
+
+
+
+

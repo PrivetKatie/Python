@@ -1,5 +1,8 @@
-numbers = [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55]
-new_numbers = [el for i, el in enumerate(numbers) if numbers[i - 1] < numbers[i]]
+with open('text_3.txt', 'r', encoding='utf-8') as f:
+    content = f.readlines()
+    size = len(content)
+    print(size)
+with open('text_3.txt', 'r', encoding='utf-8') as f:
+    for line in f:
+        print(len(line.split()))
 
-
-print(new_numbers)

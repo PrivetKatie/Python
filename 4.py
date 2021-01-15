@@ -1,4 +1,10 @@
-numbers = [2, 2, 2, 7, 23, 1, 44, 44, 3, 2, 10, 7, 4, 11]
-new_numbers = [el for el in numbers if numbers.count(el) == 1]
+d = ['Один', 'Два', 'Три', 'Четыре']
 
-print(new_numbers)
+with open('text_new3.txt', 'x', encoding='utf-8') as f_2:
+    with open('text_4.txt', 'r', encoding='utf-8') as f:
+        i = 0
+        for line in f:
+            name, number = line.split('-')
+            name = d[i]
+            i += 1
+            print(name, number, file=f_2)
