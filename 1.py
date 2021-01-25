@@ -1,22 +1,23 @@
-import colorama
-import time
+class Matrix:
+    def __init__(self, list_1, list_2):
+
+        self.list_1 = list_1
+        self.list_2 = list_2
+
+    def __add__(self):
+        matrix = [[0, 0], [0, 0], [0, 0]]
+
+        for i in range(len(self.list_1)):
+
+            for j in range(len(self.list_2[i])):
+                matrix[i][j] = self.list_1[i][j] + self.list_2[i][j]
+
+        return '\n'.join(['\t'.join([str(j) for j in i]) for i in matrix]) #почему не работает если тут return матрицу, смысл тогда от def __str__
+
+    def __str__(self):
+        return str('\n'.join(['\t'.join([str(j) for j in i]) for i in matrix]))
 
 
-class TrafficLight:
+my_matrix = Matrix([[1, 2], [3, 4], [5, 6]], [[7, 8], [9, 10], [11, 12]])
 
-    __color = ["Красный", "Желтый", "Зеленый"]
-    make_color = [colorama.Fore.RED, colorama.Fore.YELLOW, colorama.Fore.GREEN]
-    time = [7, 2, 5]
-
-    def running(self):
-        i = 0
-        while i < len(self.__color):
-            print(f'{self.make_color[i]} {self.__color[i]} сигнал сфетофора!')
-            time.sleep(self.time[i])
-            i += 1
-
-
-traffic_light_1 = TrafficLight()
-
-# while True: чтобы сделать бесконечный
-traffic_light_1.running()
+print(my_matrix.__add__())

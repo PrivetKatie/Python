@@ -1,21 +1,27 @@
-class Road:
-
-    _length = None
-    _width = None
-    weight = None
-    number_sm = None
-
-    def __init__(self, length, width):
-        self.length = length
-        self.width = width
-        print('')
-
-    def mass_count(self):
-        self.weight = 25
-        self.number_sm = 0.5
-        a_mass = self.length * self.width * self.weight * self.number_sm
-        print(f'Необходимо {a_mass} тонн')
+class Clothes:
+    pass
 
 
-road_1 = Road(20, 5000)
-road_1.mass_count()
+class Coat(Clothes):
+
+    def __init__(self, v):
+        self.v = v
+
+    @property
+    def count_cloth(self):
+        return self.v/6.5 + 0.5
+
+
+class Suit(Clothes):
+
+    def __init__(self, h):
+        self.h = h
+
+    @property
+    def count_cloth(self):
+        return 2 * self.h + 0.3
+
+
+my_suit_1 = Suit(150)
+my_coat_1 = Coat(44)
+print(round(my_suit_1.count_cloth + my_coat_1.count_cloth))
